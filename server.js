@@ -13,13 +13,15 @@ app.use(express.json())
 
 //Import Routes
 const AuthRoute = require('./Routes/auth')
+const TaskRoute = require('./Routes/taskRoutes')
 
 //Route Middlewares
 app.use('/user',AuthRoute)
+app.use('/task',TaskRoute)
 
 
 app.get('/', (req,res) => {
-res.send('Hello')
+res.send({"message":"alive"})
 })
 
-app.listen(process.env.PORT,()=>{console.log("server up and runningn in "+ process.env.PORT)})
+app.listen(process.env.PORT,()=>{console.log("server up and running in "+ process.env.PORT)})
