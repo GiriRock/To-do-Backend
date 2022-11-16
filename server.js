@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express()
+var cors = require('cors')
 const mongoose = require('mongoose')
 const dotenv = require('dotenv')
 
@@ -10,6 +11,7 @@ mongoose.connect(process.env.DB_CONN,()=>{
 })
 //Middlewares
 app.use(express.json())
+app.use(cors())
 
 //Import Routes
 const AuthRoute = require('./Routes/auth')
